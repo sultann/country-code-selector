@@ -3,30 +3,31 @@ $(document).ready(function(){
         var domSelected, content;
         domSelected = this;
         var output = "";
-        var countryName =[], countryCode =[], countryDialCode =[];
+        var countryName =[], countryCode =[], countryDialCode =[], CountryList;
         var items = [];
         $.getJSON("country-code.json", function(data){
             $.each(data, function( key, data ) {
-                //countryName = countryName.push(countryObj.name);
-                //console.log(countryObj);
-                //console.log(countryObj.dial_code);
-                //console.log(countryObj.code);
-                //content +="<li>"+ countryObj.code + " " + countryObj.dial_code +"</li>";
-                //output += key;
-                //items.push( "<li id='" + key + "'>" + key + "</li>" );
-                //console.log("<li>"+countryObj.code + " " + countryObj.dial_code+"</li>");
-                countryName.push(data.name);
+                //countryName.push(data.name);
                 countryCode.push(data.dial_code);
                 countryDialCode.push(data.code);
             });
 
 
-            console.log(countryName);
-            console.log(countryCode);
-            console.log(countryDialCode);
 
+            //console.log(countryName);
+            //console.log(countryCode);
+            //console.log(countryDialCode);
 
+            var i;
+            for(i=0; i<countryDialCode.length;i++){
+                CountryList +="<li>"+ countryDialCode[i]+"</li>";
+                console.log(i);
+            }
 
+            console.log(CountryList);
+            console.log(countryDialCode.length);
+            //console.log(CountryList);
+            //console.log($(CountryList).wrap("<ul></ul>"));
         });
 
 
